@@ -1,0 +1,5 @@
+spring:
+    application:
+        name: central-bank-mock
+server:
+    port : 9001
