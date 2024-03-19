@@ -6,7 +6,7 @@ Este projeto é uma API de transferências bancárias desenvolvida para atender 
 
 ## Arquitetura Proposta
 
-![Diagrama de Solução na AWS com Spring Boot](URL_DA_IMAGEM)
+![Diagrama de Solução na AWS com Spring Boot](https://github.com/minitato/case-test/assets/6674638/89b1f4b0-28ba-4dad-9e15-c6aec296212a)
 
 **Explicação dos Componentes:**
 
