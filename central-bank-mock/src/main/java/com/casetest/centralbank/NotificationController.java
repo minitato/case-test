@@ -27,9 +27,9 @@ class NotificationController {
     
     @ResponseBody
     @PostMapping("/api/notification/transaction")
-    public Status recept(@RequestBody CustomerPlayload customerPlayload) {
+    public Status recept(@RequestBody AccountPlayload accountPlayload) {
         if (bucket.tryConsume(1)) {
-            return new Status(200, "Notification recepted successfully", customerPlayload);
+            return new Status(200, "Notification recepted successfully", accountPlayload);
         }
         return new Status(HttpStatus.TOO_MANY_REQUESTS.value(), HttpStatus.TOO_MANY_REQUESTS.getReasonPhrase(), null);
     }
@@ -37,26 +37,41 @@ class NotificationController {
 
 }
 
-class CustomerPlayload {
-    private String name;
+class AccountPlayload {
 
-    public String getName() {
-        return name;
+    final String sourceName;
+    final String targetName;
+    final Long value;
+
+    public AccountPlayload(String sourceName, String targetName, Long value) {
+        this.sourceName = sourceName;
+        this.targetName = targetName;
+        this.value = value;
     }
-    public void setName(String name) {
-        this.name = name;
+
+    public String getSourceName() {
+        return sourceName;
     }
+
+    public String getTargetName() {
+        return targetName;
+    }
+
+    public Long getValue() {
+        return value;
+    }
+
 }
 
 class Status {
     private int status;
     private String message;
-    private CustomerPlayload customerPlayload;
+    private AccountPlayload AccountPlayload;
  
-    public Status(int status, String message, CustomerPlayload customerPlayload) {
+    public Status(int status, String message, AccountPlayload accountPlayload) {
         this.status = status;
         this.message = message;
-        this.customerPlayload = customerPlayload;
+        this.AccountPlayload = accountPlayload;
     }
     public int getStatus() {
         return status;
@@ -64,7 +79,7 @@ class Status {
     public String getMessage() {
         return message;
     }
-    public CustomerPlayload getData() {
-        return customerPlayload;
+    public AccountPlayload getData() {
+        return AccountPlayload;
     }
 }

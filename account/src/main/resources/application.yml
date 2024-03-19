@@ -1,0 +1,36 @@
+spring: 
+    application:
+        name: account
+    datasource:
+        url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;DATABASE_TO_UPPER=false
+        driverClassName: org.h2.Driver
+        username: sa
+        password:
+    jpa:
+        open-in-view: true
+        show-sql: true
+        defer-datasource-initialization: true
+        properties:
+            hibernate:
+                ddl-auto: none
+    sql:
+        init:
+            mode: always
+    h2:
+        console:
+            enabled: true
+            path: /h2-ui
+resilience4j:
+  circuitbreaker:
+    instances:
+        sender-notification-resiliency:
+            minimumNumberOfCalls: 3
+            slidingWindowSize: 6
+
+springdoc:
+    api-docs:
+        enabled: true
+        
+infrastructure:
+     transferThreshold: 10000
+     limitPerDay: 1000

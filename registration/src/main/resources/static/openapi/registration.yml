@@ -1,0 +1,50 @@
+openapi: '3.0.2'
+info:
+  title: API Cadastral
+  version: '1.0'
+  contact:
+    email: joao.a.dias-rodrigues@itau-unibanco.com.br
+servers:
+  - url: http://localhost:8081
+paths:
+  /registration/customer/{name}:
+    get:
+      tags:
+        - Cliente
+      summary: Buscar cliente por nome
+      description: Retorna um cliente pelo nome
+      operationId: getCustomerByName
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: Nome do cliente
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Operação realizada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+components:
+  schemas:
+    Customer:
+      type: object
+      properties:
+        name:
+          type: string
+        balance:
+          type: number
+          format: double
+        limit:
+          type: number
+          format: double
+        isActive:
+          type: boolean
+      example:
+        name: João
+        balance: 1000.0
+        limit: 500.0
+        isActive: true

@@ -1,0 +1,29 @@
+spring:
+    application:
+        name: registration
+    datasource:
+        url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;DATABASE_TO_UPPER=false
+        driverClassName: org.h2.Driver
+        username: sa
+        password:
+    jpa:
+        show-sql: true
+        defer-datasource-initialization: true
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.H2Dialect
+                ddl-auto: none
+    sql:
+        init:
+            mode: always
+    h2:
+        console:
+            enabled: true
+            path: /h2-ui
+server:
+    port: 8081
+springdoc:
+    api-docs:
+        enabled: true
+    swagger-ui:
+        url: /openapi/registration.yml
