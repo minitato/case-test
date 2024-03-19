@@ -38,7 +38,7 @@ O objetivo deste projeto é fornecer uma simulação de serviço de notificaçã
     ```
 
 ## Uso
-O serviço estará disponível em http://localhost:9001. Ele aceita solicitações POST para o endpoint /notificacao para enviar notificações ao Banco Central mock.
+O serviço estará disponível em http://localhost:8082. Ele aceita solicitações POST para o endpoint /notificacao para enviar notificações ao Banco Central mock.
 
 1. Exemplo de solicitação cURL:
     ```bash
