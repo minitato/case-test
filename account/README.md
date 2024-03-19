@@ -14,9 +14,9 @@ O objetivo deste projeto é fornecer uma aplicação de exemplo que simula o ser
 
 Antes de executar o serviço de Conta para Transferências, você precisará configurar e executar os seguintes serviços:
 
-- **Registro de Clientes (registration)**: Um serviço responsável pelo registro de clientes. [Instruções de Configuração e Execução](link_para_documentação_do_registro_de_clientes).
+- **Registro de Clientes (registration)**: Um serviço responsável pelo registro de clientes. [Instruções de Configuração e Execução](../registration/README.md).
 
-- **Banco Central Mock (central-bank-mock)**: Um serviço mock que simula o serviço do Banco Central. Ele é usado para notificações e retornos de status, como HTTP 429 (Too Many Requests). [Instruções de Configuração e Execução](link_para_documentação_do_banco_central_mock).
+- **Banco Central Mock (central-bank-mock)**: Um serviço mock que simula o serviço do Banco Central. Ele é usado para notificações e retornos de status, como HTTP 429 (Too Many Requests). [Instruções de Configuração e Execução](../central-bank-mock/README.md).
 
 ### Requisitos
 
