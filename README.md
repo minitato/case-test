@@ -48,9 +48,6 @@ Este projeto é uma API de transferências bancárias desenvolvida para atender 
 6. **Suporte a Alto Throughput (6 mil TPS):**
    - Spring Boot, Amazon RDS e Amazon ElastiCache são serviços altamente escaláveis que podem lidar com um alto volume de transações.
 
-7. **Estratégia para Falhas de Dependência:**
-   - O uso de Amazon SQS como uma fila de mensagens permite reprocessamento de mensagens em caso de falhas de dependência. Além disso, a capacidade de escalar automaticamente recursos ajuda a lidar com falhas de forma resiliente.
-
 
 ## Este repositório contém três projetos relacionados:
 
