@@ -33,16 +33,26 @@ public class Ledger {
     }
     
 	public Money calculateBalance(Account.AccountId accountId) {
-		Money debit = activities.stream()
-				.filter(a -> a.getTargetAccountId().equals(accountId))
-				.map(Activity::getMoney)
-				.reduce(Money.ZERO, Money::add);
-
-		Money credit = activities.stream()
-				.filter(a -> a.getSourceAccountId().equals(accountId))
-				.map(Activity::getMoney)
-				.reduce(Money.ZERO, Money::add);
-
+		Money[] balances = activities.stream()
+				.reduce(
+					new Money[]{Money.ZERO, Money.ZERO},
+					(acc, activity) -> {
+						if (activity.getTargetAccountId().equals(accountId)) {
+							acc[0] = Money.add(acc[0], activity.getMoney());
+						}
+						if (activity.getSourceAccountId().equals(accountId)) {
+							acc[1] = Money.add(acc[1], activity.getMoney());
+						}
+						return acc;
+					},
+					(acc1, acc2) -> new Money[]{
+						Money.add(acc1[0], acc2[0]),
+						Money.add(acc1[1], acc2[1])
+					}
+				);
+		
+		Money debit = balances[0];
+		Money credit = balances[1];
 		return Money.add(debit, credit.negate());
 	}
 
